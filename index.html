@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+ <html>
+     <head>
+         <title>Dynamic Dropdown Menu</title>
+     </head>
+     <body>
+    <form id="formname" name="formname" method="post" action="submitform.asp" >
+         <table>
+             <tr>
+                 <td>Category :</td>
+                 <td>
+                     <select name="category" id="category" onchange="javascript:dropdownlist(this.options[this.selectedIndex].value);">
+                     <option value="">Select Division</option>
+                     <option value="Dhaka">Dhaka</option>
+                     <option value="Rajshahi">Rajshahi</option>
+                     <option value="Khulna">Khulna</option>
+                 </select></td>
+             </tr>
+             <tr>
+                 <td>Districts Name:</td>
+                 <td>
+                     <script type="text/javascript" language="JavaScript">
+                        document.write('<select name="subcategory"><option value="">Select Sub-Category</option></select>')
+                     </script>
+                     <noscript>
+                         <select name="subcategory" id="subcategory" >
+                            <option value="">Select Sub-Category</option>
+                         </select>
+                     </noscript>
+                 </td>
+             </tr>
+         </table>
+
+    </form>
+         <script>
+             function dropdownlist(listindex){
+                document.formname.subcategory.options.length = 0;
+                 switch (listindex){
+                     case "Dhaka" :
+                     document.formname.subcategory.options[0]=new Option("Select Districts","");
+                     document.formname.subcategory.options[1]=new Option("Dhaka","Dhaka");
+                     document.formname.subcategory.options[1]=new Option("Tangail","Tangail");
+                     document.formname.subcategory.options[2]=new Option("Rajbari","Rajbari");
+                     document.formname.subcategory.options[3]=new Option("Savar","Savar");
+
+                     break;
+
+                     case "Rajshahi" :
+                     document.formname.subcategory.options[0]=new Option("Select Districts","");
+                     document.formname.subcategory.options[1]=new Option("Rajshahi","Rajshahi");
+                     document.formname.subcategory.options[2]=new Option("Bogra","Bogra");
+                     document.formname.subcategory.options[3]=new Option("Sirajganj","Sirajganj");
+                     document.formname.subcategory.options[4]=new Option("Thakurgaon","Thakurgaon");
+
+                     break;
+
+                     case "Khulna" :
+                     document.formname.subcategory.options[0]=new Option("Select Districts","");
+                     document.formname.subcategory.options[1]=new Option("Khulna","Khulna");
+                     document.formname.subcategory.options[2]=new Option("Magura","Magura");
+                     document.formname.subcategory.options[3]=new Option("Meherpur","Meherpur");
+                     document.formname.subcategory.options[4]=new Option("Jinaihah","Jinaihah");
+
+                     break;
+
+                 }
+                 return true;
+             }
+         </script>
+
+    </body>
+</html>
